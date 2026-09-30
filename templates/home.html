@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Students</h1>
+    {% for student in stu_info %}
+        {{ student.name }}
+        {{ student.age }}
+        {{ student.marks }}
+        <br><br>
+    {% endfor %}
+
+    {% if stu_info.has_previous %}
+        <a href="?page={{ stu_info.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    {% for page in stu_info.paginator.page_range %}
+        <a href="?page={{ page }}">{{page}}</a>
+    {% endfor %}
+
+    {% if stu_info.has_next %}
+        <a href="?page={{ stu_info.next_page_number }}" >Next</a>
+    {% endif %}
+</body>
+</html>
