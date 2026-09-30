@@ -60,3 +60,6 @@ class DeleteStudent(View):
         student = Student.objects.get(id=id)
         student.delete()
         return JsonResponse({'status':'Student Deleted!'})
+
+def home(req):
+    return JsonResponse({'status':'Home Page!'})
